@@ -1,48 +1,48 @@
-import { BasicRule } from "./BasicRule";
+import { BasicRule } from './BasicRule'
 
 export class StringRule extends BasicRule {
   required(errorMessage?: string) {
     this.addValidator((val) => {
       if (!val) {
-        return Promise.reject(errorMessage);
+        return Promise.reject(errorMessage)
       }
-    });
-    return this;
+    })
+    return this
   }
 
   min(minLen: number, errorMsg?: string) {
     this.addValidator((value) => {
       if (value.length < minLen) {
-        return Promise.reject(errorMsg);
+        return Promise.reject(errorMsg)
       }
-    });
-    return this;
+    })
+    return this
   }
 
   max(maxLen: number, errorMsg?: string) {
     this.addValidator((value) => {
       if (value.length > maxLen) {
-        return Promise.reject(errorMsg);
+        return Promise.reject(errorMsg)
       }
-    });
-    return this;
+    })
+    return this
   }
 
   matchReg(reg: RegExp, errorMsg?: string) {
     this.addValidator((value) => {
       if (!reg.test(value)) {
-        return Promise.reject(errorMsg);
+        return Promise.reject(errorMsg)
       }
-    });
-    return this;
+    })
+    return this
   }
 
   unMatchReg(reg: RegExp, errorMsg?: string) {
     this.addValidator((value) => {
       if (reg.test(value)) {
-        return Promise.reject(errorMsg);
+        return Promise.reject(errorMsg)
       }
-    });
-    return this;
+    })
+    return this
   }
 }

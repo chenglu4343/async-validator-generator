@@ -8,32 +8,33 @@ Specification of form validation rules in a project by convention.
 
 # Usage
 
-```js
-import { StringRule, BasicRule } from "async-validator-generator";
+```ts
+import { BasicRule, StringRule } from 'async-validator-generator'
 
 const rules = {
   name: {
-    asyncValidator: new StringRule("name uncorrect")
-      .required("nessary")
+    asyncValidator: new StringRule('name uncorrect')
+      .required('nessary')
       .min(3)
       .max(10).validator,
   },
   complex: {
     asyncValidator: new BasicRule().addValidator((val) => {
-      if (val === "123") return Promise.reject("123 is not allowed");
+      if (val === '123')
+        return Promise.reject('123 is not allowed')
     }).validator,
   },
-};
+}
 ```
 
 # Custom
 
 ```js
-import { StringRule } from "async-validator-generator";
+import { StringRule } from 'async-validator-generator'
 
-export CustomStringRule extends StringRule {
-    telephone(message) {
-        return this.matchReg(/^1[3456789]\d{9}$/, message)
-    }
+export class CustomStringRule extends StringRule {
+  telephone(message) {
+    return this.matchReg(/^1[3-9]\d{9}$/, message)
+  }
 }
 ```

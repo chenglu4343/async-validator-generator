@@ -1,32 +1,38 @@
 {
-  "author": "chenglu4343",
+  "name": "async-validator-generator",
+  "version": "0.0.1",
   "description": "",
+  "author": "chenglu4343",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenglu4343/async-validator-generator"
+  },
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "npx simple-git-hooks"
+  },
+  "peerDependencies": {
+    "async-validator": "^4.2.5"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",
     "@eslint-react/eslint-plugin": "^1.5.15",
     "eslint": "9.4.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "lint-staged": "^15.2.7",
     "simple-git-hooks": "^2.11.1"
-  },
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
-  "name": "async-validator-generator",
-  "peerDependencies": {
-    "async-validator": "^4.2.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chenglu4343/async-validator-generator"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prepare": "npx simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
-  "version": "0.0.1"
+  "lint-staged": {
+    "*.{js,vue,ts,jsx,tsx}": [
+      "eslint --cache --fix"
+    ]
+  }
 }

@@ -1,14 +1,14 @@
-<script setup lang="ts">
-import { ref } from "vue";
-import { NForm, NFormItem, FormInst, NInput, NButton, FormRules } from "naive-ui";
-import { StringRule } from "../../../src/StringRule";
+<script setup>
+import { ref } from 'vue'
+import { NButton, NForm, NFormItem, NInput } from 'naive-ui'
+import { StringRule } from '../../../src/StringRule'
 
-const formRef = ref<FormInst>()
+const formRef = ref()
 const model = ref({})
-const rules: FormRules = {
+const rules = {
   name: {
-    validator: new StringRule("name 必填").required().validator
-  }
+    validator: new StringRule('name 必填').required().validator,
+  },
 }
 </script>
 
@@ -18,7 +18,9 @@ const rules: FormRules = {
       <NInput />
     </NFormItem>
     <NFormItem>
-      <NButton @click="formRef?.validate()" type="primary">提交</NButton>
+      <NButton type="primary" @click="formRef?.validate()">
+        提交
+      </NButton>
     </NFormItem>
   </NForm>
 </template>

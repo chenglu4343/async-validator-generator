@@ -2,5 +2,7 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu({
   vue: true,
-  react: true,
+  rules: {
+    'ts/prefer-promise-reject-errors': 'off',
+  },
 })
