@@ -7,7 +7,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chenglu4343/async-validator-generator"
+    "url": "git+https://github.com/chenglu4343/async-validator-generator.git"
   },
   "keywords": [],
   "exports": {
